@@ -1,23 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {Cadastro} from './pages/Cadastro'
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { GlobalStyle } from './styles/GlobalStyle'
+
+// - pages
+import { Cadastro } from './pages/Cadastro/Index'
+import { ErrorPage } from './pages/Error/Index'
 import { Home } from './pages/Home/Index';
-import { ErrorPage } from './pages/Error';
 
 const routers = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Cadastro />,
     errorElement: <ErrorPage />
   },
   {
     path: "/home",
-    element: <Cadastro />
+    element: <Home />
   }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <GlobalStyle />
     <RouterProvider router={routers} />
   </React.StrictMode>,
 )
